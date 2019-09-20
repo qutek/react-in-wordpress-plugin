@@ -6,43 +6,15 @@ import EditPostForm from '@components/forms/EditPostForm'
 import PostTable from '@components/tables/PostTable'
 
 const App = () => {
-	// Data
-	const postsData = [
-		{ id: 1, title: 'Lafif Astahdziq', author: 'qutek' },
-		{ id: 2, title: 'Lisal Cahya', author: 'monyong' },
-		{ id: 3, title: 'Ben Kasyafani', author: 'eben' },
-	]
 
-	const initialFormState = { id: null, title: '', author: '' }
+	const initialFormState = { id: null, title: '', content: '' }
 
-	// Setting state
-	const [ posts, setPosts ] = useState(postsData)
 	const [ currentPost, setCurrentPost ] = useState(initialFormState)
 	const [ editing, setEditing ] = useState(false)
 
-	// CRUD operations
-	const addPost = post => {
-		setEditing(false)
-		post.id = posts.length + 1
-		setPosts([ ...posts, post ])
-	}
-
-	const deletePost = id => {
-		setEditing(false)
-
-		setPosts(posts.filter(post => post.id !== id))
-	}
-
-	const updatePost = (id, updatedPost) => {
-		setEditing(false)
-
-		setPosts(posts.map(post => (post.id === id ? updatedPost : post)))
-	}
-
 	const editRow = post => {
 		setEditing(true)
-
-		setCurrentPost({ id: post.id, title: post.title, author: post.author })
+		setCurrentPost({ id: post.id, title: post.title.rendered, content: post.content.rendered })
 	}
 
 	return (
@@ -56,7 +28,6 @@ const App = () => {
 								editing={editing}
 								setEditing={setEditing}
 								currentPost={currentPost}
-								updatePost={updatePost}
 							/>
 						</Fragment>
 					) : (
@@ -64,7 +35,6 @@ const App = () => {
 							<h1>Add post</h1>
 							<AddPostForm
 								setEditing={setEditing}
-								addPost={addPost}
 							/>
 						</Fragment>
 					)}
@@ -81,7 +51,7 @@ const App = () => {
 					<hr className="wp-header-end" />
 					<ul className="subsubsub"/>
 
-					<PostTable posts={posts} editRow={editRow} deletePost={deletePost} />
+					<PostTable editRow={editRow}/>
 				</Fragment>
 			)}
 		</Fragment>

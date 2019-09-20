@@ -1,39 +1,51 @@
 // import React, { useState } from 'react'
 import { useState, useEffect } from '@wordpress/element'
+import { TextControl, TextareaControl, Button } from '@wordpress/components';
+import request from '@/utils/request'
 
-const AddPostForm = props => {
-	const initialFormState = { id: null, title: '', author: '' }
-	const [ post, setPost ] = useState(initialFormState)
+const AddPostForm = (props) => {
+	const initialFormState = { id: null, title: '', content: '' };
+	const [ post, setPost ] = useState(initialFormState);
 
-	const handleInputChange = event => {
-		const { name, value } = event.target
+	const handleInputChange = (name, value) => {
+		setPost({ ...post, [name]: value });
+	}
 
-		setPost({ ...post, [name]: value })
+	const handleSubmit = (event) => {
+		event.preventDefault()
+		if (!post.title || !post.content) return;
+
+		request.post('/posts', {
+			...post,
+			status: 'publish'
+		}).then((response) => {
+			if(response.status === 201){
+				// reset
+				setPost(initialFormState);
+				props.setEditing(false);
+			}
+		});
 	}
 
 	return (
-		<form
-			onSubmit={event => {
-				event.preventDefault()
-				if (!post.title || !post.author) return
-
-				props.addPost(post)
-				setPost(initialFormState)
-			}}
-		>
-			<label>Title</label>
-			<input type="text" name="title" value={post.title} onChange={handleInputChange} />
-			<label>Author</label>
-			<input type="text" name="author" value={post.author} onChange={handleInputChange} />
+		<form onSubmit={handleSubmit} >
+			<TextControl
+				label="Name"
+			    value={ post.title }
+			    onChange={ value => { handleInputChange('title', value) } }
+		  	/>
+			<TextareaControl
+			    label="Content"
+			    help="Enter some text"
+			    value={ post.content }
+			    onChange={ value => { handleInputChange('content', value) } }
+		  	/>
 			<hr/>
-			<button
-        		type='submit'
-				className="button button-primary">Add new post</button>
-        	<span> | </span>
-			<button
-        		type='button'
-        		onClick={() => props.setEditing(false)} className="button muted-button">Cancel
-      		</button>
+			<Button isLarge isPrimary type='submit'>Update post</Button>
+			<span> | </span>
+			<Button isLarge isDestructive
+				onClick={() => props.setEditing(false)}
+			>Cancel</Button>
 		</form>
 	)
 }

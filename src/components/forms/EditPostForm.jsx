@@ -1,46 +1,45 @@
 // import React, { useState, useEffect } from 'react'
 import { useState, useEffect } from '@wordpress/element'
+import { TextControl, TextareaControl, Button } from '@wordpress/components';
+import request from '@/utils/request'
 
-const EditPostForm = props => {
-	const [ post, setPost ] = useState(props.currentPost)
+const EditPostForm = (props) => {
+	const [ post, setPost ] = useState(props.currentPost);
 
-	useEffect(
-		() => {
-			setPost(props.currentPost)
-		},
-		[ props ]
-	)
-	// You can tell React to skip applying an effect if certain values haven’t changed between re-renders. [ props ]
+	const handleInputChange = (name, value) => {
+		setPost({ ...post, [name]: value });
+	}
 
-	const handleInputChange = event => {
-		const { name, value } = event.target
-
-		setPost({ ...post, [name]: value })
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		// console.log(post);
+		request.post('/posts/' + post.id, post).then((response) => {
+			if(response.status === 200){
+				// console.log(response);
+				props.setEditing(false);
+			}
+		});
 	}
 
 	return (
-		<form
-			onSubmit={event => {
-				event.preventDefault()
-
-				props.updatePost(post.id, post)
-			}}
-		>
-			<label>Name</label>
-			<input type="text" name="title" value={post.title} onChange={handleInputChange} />
-			<label>Author</label>
-			<input type="text" name="author" value={post.author} onChange={handleInputChange} />
+		<form onSubmit={handleSubmit}>
+			<TextControl
+				label="Name"
+			    value={ post.title }
+			    onChange={ value => { handleInputChange('title', value) } }
+		  	/>
+			<TextareaControl
+			    label="Content"
+			    help="Enter some text"
+			    value={ post.content }
+			    onChange={ value => { handleInputChange('content', value) } }
+		  	/>
 			<hr/>
-			<button
-				type='submit'
-				className="button button-primary">Update post
-			</button>
+			<Button isLarge isPrimary type='submit'>Update post</Button>
 			<span> | </span>
-			<button
-				type='button'
-				onClick={() => props.setEditing(false)} className="button muted-button">
-				Cancel
-			</button>
+			<Button isLarge isDestructive
+				onClick={() => props.setEditing(false)}
+			>Cancel</Button>
 		</form>
 	)
 }
