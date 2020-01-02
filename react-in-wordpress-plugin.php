@@ -32,10 +32,12 @@ function rwp_enqueue_scripts(){
 	if( $current_screen->id != 'toplevel_page_learn-react' )
 		return;
 
+	wp_enqueue_style( 'wp-components' );
+
 	wp_enqueue_script(
 	  	'my-plugin-frontend',
 	  	plugin_dir_url( __FILE__ ) . 'dist/js/app.js',
-	  	['wp-element'],
+	  	['wp-api', 'wp-element', 'wp-components'],
 	  	null,
 	  	true
 	);
