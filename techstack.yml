@@ -1,11 +1,12 @@
 repo_name: qutek/react-in-wordpress-plugin
 report_id: 3f0773e61346ced039ce834177fd1d3a
+version: 0.1
 repo_type: Public
-timestamp: '2023-11-14T15:35:46+00:00'
+timestamp: '2024-01-05T08:43:45+00:00'
 requested_by: qutek
 provider: github
 branch: master
-detected_tools_count: 17
+detected_tools_count: 18
 tools:
 - name: JavaScript
   description: Lightweight, interpreted, object-oriented language with first-class
@@ -16,6 +17,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source_url: https://github.com/qutek/react-in-wordpress-plugin
   detection_source: Repo Metadata
 - name: PHP
   description: A popular general-purpose scripting language that is especially suited
@@ -26,6 +28,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/991/hwUcGZ41_400x400.jpg
+  detection_source_url: https://github.com/qutek/react-in-wordpress-plugin
   detection_source: Repo Metadata
 - name: React
   description: A JavaScript library for building user interfaces
@@ -36,6 +39,7 @@ tools:
   category: Libraries
   sub_category: Javascript UI Libraries
   image_url: https://img.stackshare.io/service/1020/OYIaJ1KK.png
+  detection_source_url: https://github.com/qutek/react-in-wordpress-plugin/blob/master/src/components/App.jsx
   detection_source: src/components/App.jsx
   last_updated_by: Lafif Astahdziq
   last_updated_on: 2019-09-18 02:31:22.000000000 Z
@@ -48,6 +52,7 @@ tools:
   category: Libraries
   sub_category: Javascript MVC Frameworks
   image_url: https://img.stackshare.io/service/3837/paeckCWC.png
+  detection_source_url: https://github.com/qutek/react-in-wordpress-plugin/blob/master/package.json
   detection_source: package.json
   last_updated_by: Lafif Astahdziq
   last_updated_on: 2019-09-18 02:31:22.000000000 Z
@@ -61,7 +66,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: JavaScript Compilers
   image_url: https://img.stackshare.io/service/2739/-1wfGjNw.png
-  detection_source_url: yarn.lock
+  detection_source_url: https://github.com/qutek/react-in-wordpress-plugin/blob/master/yarn.lock
   detection_source: package.json
   last_updated_by: Lafif Astahdziq
   last_updated_on: 2019-12-30 03:11:40.000000000 Z
@@ -73,6 +78,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/qutek/react-in-wordpress-plugin
   detection_source: Repo Metadata
 - name: Yarn
   description: A new package manager for JavaScript
@@ -82,6 +88,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Front End Package Manager
   image_url: https://img.stackshare.io/service/5848/44mC-kJ3.jpg
+  detection_source_url: https://github.com/qutek/react-in-wordpress-plugin/blob/master/yarn.lock
   detection_source: yarn.lock
   last_updated_by: Lafif Astahdziq
   last_updated_on: 2019-09-18 02:31:22.000000000 Z
@@ -93,6 +100,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Front End Package Manager
   image_url: https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png
+  detection_source_url: https://github.com/qutek/react-in-wordpress-plugin/blob/master/package.json
   detection_source: package.json
   last_updated_by: Lafif Astahdziq
   last_updated_on: 2019-09-18 02:31:22.000000000 Z
@@ -106,7 +114,7 @@ tools:
   category: Libraries
   sub_category: Javascript Utilities & Libraries
   image_url: https://img.stackshare.io/no-img-open-source.png
-  detection_source_url: yarn.lock
+  detection_source_url: https://github.com/qutek/react-in-wordpress-plugin/blob/master/yarn.lock
   detection_source: package.json
   last_updated_by: Lafif Astahdziq
   last_updated_on: 2019-09-18 02:31:22.000000000 Z
@@ -116,6 +124,7 @@ tools:
   open_source: false
   hosted_saas: false
   image_url: https://img.stackshare.io/service/7945/h7umz7fz_normal.jpg
+  detection_source_url: https://github.com/qutek/react-in-wordpress-plugin/blob/master/package.json
   detection_source: package.json
   last_updated_by: Lafif Astahdziq
   last_updated_on: 2019-12-30 03:11:40.000000000 Z
@@ -129,7 +138,7 @@ tools:
   category: Libraries
   sub_category: npm Packages
   image_url: https://img.stackshare.io/package/15890/default_6743ba96cf149a3c3c68a185199f9705d6eff80e.png
-  detection_source_url: yarn.lock
+  detection_source_url: https://github.com/qutek/react-in-wordpress-plugin/blob/master/yarn.lock
   detection_source: package.json
   last_updated_by: Lafif Astahdziq
   last_updated_on: 2020-01-02 09:15:13.000000000 Z
@@ -143,7 +152,21 @@ tools:
   category: Libraries
   sub_category: npm Packages
   image_url: https://img.stackshare.io/package/15828/default_14fd11531839d935f920b6d55bd6f3528c890ad7.png
-  detection_source_url: yarn.lock
+  detection_source_url: https://github.com/qutek/react-in-wordpress-plugin/blob/master/yarn.lock
+  detection_source: package.json
+  last_updated_by: Lafif Astahdziq
+  last_updated_on: 2019-12-30 03:11:40.000000000 Z
+- name: laravel-mix
+  description: Laravel Mix is an elegant wrapper around Webpack for the 80% use case
+  package_url: https://www.npmjs.com/laravel-mix
+  version: 5.0.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/17350/default_33c3173e7d0e91f7cea0eab9883ca83b157bd4a5.png
+  detection_source_url: https://github.com/qutek/react-in-wordpress-plugin/blob/master/yarn.lock
   detection_source: package.json
   last_updated_by: Lafif Astahdziq
   last_updated_on: 2019-12-30 03:11:40.000000000 Z
@@ -157,7 +180,7 @@ tools:
   category: Libraries
   sub_category: npm Packages
   image_url: https://img.stackshare.io/package/15992/default_8b5680d4e916298d08363c291a0d6e34c07ceb15.png
-  detection_source_url: yarn.lock
+  detection_source_url: https://github.com/qutek/react-in-wordpress-plugin/blob/master/yarn.lock
   detection_source: package.json
   last_updated_by: Lafif Astahdziq
   last_updated_on: 2020-01-02 09:15:13.000000000 Z
@@ -171,7 +194,7 @@ tools:
   category: Libraries
   sub_category: npm Packages
   image_url: https://img.stackshare.io/package/16125/default_def3edb85d7fbd20200a5cd7d0a1679e31bc8b3d.png
-  detection_source_url: yarn.lock
+  detection_source_url: https://github.com/qutek/react-in-wordpress-plugin/blob/master/yarn.lock
   detection_source: package.json
   last_updated_by: Lafif Astahdziq
   last_updated_on: 2019-09-18 02:31:22.000000000 Z
@@ -192,7 +215,7 @@ tools:
   category: Libraries
   sub_category: npm Packages
   image_url: https://img.stackshare.io/package/16057/default_5fd43aeff4d6a935abc13737de01a0355210499d.png
-  detection_source_url: yarn.lock
+  detection_source_url: https://github.com/qutek/react-in-wordpress-plugin/blob/master/yarn.lock
   detection_source: package.json
   last_updated_by: Lafif Astahdziq
   last_updated_on: 2019-12-30 03:11:40.000000000 Z
@@ -206,7 +229,7 @@ tools:
   category: Libraries
   sub_category: npm Packages
   image_url: https://img.stackshare.io/package/15842/default_b71c906aeda030a5e2f1fe40bf12a93be52404ab.png
-  detection_source_url: yarn.lock
+  detection_source_url: https://github.com/qutek/react-in-wordpress-plugin/blob/master/yarn.lock
   detection_source: package.json
   last_updated_by: Lafif Astahdziq
   last_updated_on: 2019-12-30 03:11:40.000000000 Z
@@ -220,7 +243,7 @@ tools:
   category: Libraries
   sub_category: npm Packages
   image_url: https://img.stackshare.io/package/15850/default_0b10af8ca19c215f781dc07442e75bdc831089d0.png
-  detection_source_url: yarn.lock
+  detection_source_url: https://github.com/qutek/react-in-wordpress-plugin/blob/master/yarn.lock
   detection_source: package.json
   last_updated_by: Lafif Astahdziq
   last_updated_on: 2019-09-18 02:31:22.000000000 Z
